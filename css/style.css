@@ -108,4 +108,29 @@ body {
 .post-tags p {
   margin: 0 10px 0 0;
 }
+
+.tag-size-1 {
+  font-size: 60%;
+  color: #aaa;
+}
+
+.tag-size-2 {
+  font-size: 80%;
+  color: #a0a;
+}
+
+.tag-size-3 {
+  font-size: 100%;
+  color: black;
+}
+
+.tag-size-4 {
+  font-size: 120%;
+  color: #050;
+}
+
+.tag-size-5 {
+  font-size: 140%;
+  color: red;
+}
 /*# sourceMappingURL=style.css.map */
