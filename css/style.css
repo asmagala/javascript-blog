@@ -133,4 +133,16 @@ body {
   font-size: 140%;
   color: red;
 }
+
+a.authorslist {
+  text-decoration: none;
+}
+
+a.authorslist:hover {
+  color: green;
+}
+
+a.authorslist :active {
+  color: red;
+}
 /*# sourceMappingURL=style.css.map */

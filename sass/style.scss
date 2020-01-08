@@ -144,3 +144,13 @@ body {
   font-size: 140%;
   color: red;
 }
+
+a.authorslist {
+  text-decoration: none;
+  &:hover {
+    color: green;
+  }
+  :active {
+    color: red;
+  }
+}
