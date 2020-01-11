@@ -131,18 +131,15 @@ body {
 
 .tag-size-5 {
   font-size: 140%;
-  color: red;
+  color: darkred;
 }
 
-a.authorslist {
+ul.authors li a {
   text-decoration: none;
 }
 
-a.authorslist:hover {
+ul.authors li a:hover {
   color: green;
-}
-
-a.authorslist :active {
-  color: red;
+  text-decoration: underline;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,5 +1,17 @@
 {
   'use strict';
+
+    const opt = {
+      optArticleSelector: '.post',
+      optTitleSelector: '.post-title',
+      optTitleListSelector: '.titles',
+      optArticleTagsSelector: '.post-tags .list',
+      optArticleAuthorSelector: '.post-author',
+      optTagsListSelector: '.tags.list',
+      optCloudClassCount: 5,
+      optCloudClassPrefix: 'tag-size-',
+    };
+
   const titleClickHandler = function(event) {
     event.preventDefault();
     const clickedElement = this;
@@ -30,25 +42,15 @@
     targetArticle.classList.add('active');
   };
 
-  const optArticleSelector = '.post',
-    optTitleSelector = '.post-title',
-    optTitleListSelector = '.titles',
-    optArticleTagsSelector = '.post-tags .list',
-    optArticleAuthorSelector = '.post-author',
-    optTagsListSelector = '.tags.list',
-    optCloudClassCount = 5,
-    optCloudClassPrefix = 'tag-size-';
-
-
   function generateTitleLinks(customSelector = '') {
 
     /* remove contents of titleList */
-    const titleList = document.querySelector(optTitleListSelector);
+    const titleList = document.querySelector(opt.optTitleListSelector);
 
     titleList.innerHTML = '';
   
     /* for each article */
-    const articles = document.querySelectorAll(optArticleSelector + customSelector);
+    const articles = document.querySelectorAll(opt.optArticleSelector + customSelector);
 
     let html = '';
     for(let article of articles){
@@ -58,7 +60,7 @@
 
       /* find the title element */
       /* get the title from the title element */
-      const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+      const articleTitle = article.querySelector(opt.optTitleSelector).innerHTML;
 
       /* create HTML of the link */
       const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
@@ -95,8 +97,8 @@
     const normalizedCount = count - params.min;
     const normalizedMax = params.max - params.min;
     const percentage = normalizedCount / normalizedMax;
-    const classNumber = Math.floor(percentage * (optCloudClassCount - 1) + 1);
-    return optCloudClassPrefix + classNumber;
+    const classNumber = Math.floor(percentage * (opt.optCloudClassCount - 1) + 1);
+    return opt.optCloudClassPrefix + classNumber;
   }
 
   function generateTags() {
@@ -104,12 +106,12 @@
     let allTags = {};
 
     /* find all articles */
-    const articles = document.querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(opt.optArticleSelector);
 
     /* START LOOP: for every article: */
     for(let article of articles) {
       /* find tags wrapper */
-      const tagList = article.querySelector(optArticleTagsSelector)
+      const tagList = article.querySelector(opt.optArticleTagsSelector)
 
       /* make html variable with empy string */
       let html = "";
@@ -215,12 +217,12 @@
     let allAuthors = {};
 
     /* find all articles */
-    const articles = document.querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(opt.optArticleSelector);
 
     /* START LOOP: for every article: */
     for(let article of articles) {
       /* find author wrapper 'post-author' */
-      const author = article.querySelector(optArticleAuthorSelector)
+      const author = article.querySelector(opt.optArticleAuthorSelector)
 
       /* make html variable with empy string */
       let html = "";
@@ -264,7 +266,7 @@
     /* make a new constant "href" and read the attribute "href" of the clicked element */
     const href = clickedElement.getAttribute('href');
 
-    console.log(href);
+    console.log('href:', href);
     
     /* make a new constant "author" and extract tag from the "href" constant */
     const author = href.replace('#author-', '').replace('-', ' ');
@@ -293,7 +295,7 @@
   
   function addClickListenersToAuthors(){
     /* find all links to authors */
-    const links = document.querySelectorAll('.post-author a, .authorslist a');
+    const links = document.querySelectorAll('.post-author a, .authors a');
 
     /* START LOOP: for each link */
     for(let link of links) {
